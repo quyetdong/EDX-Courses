@@ -19,19 +19,22 @@ const convertToJson = (source = 'customer-data.csv') => {
 
     if (i > 0) {
       let valArr = line.split(',');
-      dataArr[i - 1] = {};
+      let obj = {};
 
       for (let j = 0; j < leng; j += 1) {
-        dataArr[i - 1][proArr[j]] = valArr[j];
+        obj[proArr[j]] = valArr[j];
       }
+      dataArr.push(obj);
     }
 
     i += 1;
   });
 
   lineReader.on('close', () => {
-    dataArr = JSON.stringify(dataArr);
-    fs.writeFileSync(path.join(__dirname, 'customer-data.json'), dataArr);
+    let json = JSON.stringify(dataArr, null, 2);
+    fs.writeFile(path.join(__dirname, 'customer-data.json'), json, 'utf8', function(err) {
+      if(err) console.log('Got error: ', err.message);
+    });
   })
 }
 
