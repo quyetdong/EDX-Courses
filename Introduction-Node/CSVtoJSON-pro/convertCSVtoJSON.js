@@ -33,8 +33,8 @@ const convertToJson = (source = 'customer-data.csv') => {
   lineReader.on('close', () => {
     let json = JSON.stringify(dataArr, null, 2);
     fs.writeFile(path.join(__dirname, 'customer-data.json'), json, 'utf8', function(err) {
-      if(err) console.log('Got error: ', err.message);
-      else console.log('Data has been written to the file!')
+      if(err) return console.log('Got error: ', err.message);
+      console.log('Data has been written to the file!')
     });
   })
 }
