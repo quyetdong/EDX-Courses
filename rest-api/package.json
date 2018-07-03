@@ -1,0 +1,30 @@
+{
+  "name": "rest-api",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --exec babel-node --presets=env server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel": "6.23.0",
+    "babel-cli": "6.26.0",
+    "babel-core": "6.26.3",
+    "babel-polyfill": "6.26.0",
+    "babel-preset-env": "1.7.0",
+    "body-parser": "1.18.3",
+    "errorhandler": "1.5.0",
+    "express": "4.16.3",
+    "morgan": "1.9.0"
+  },
+  "devDependencies": {},
+  "description": "",
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  }
+}
